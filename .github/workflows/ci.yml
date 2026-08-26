@@ -50,7 +50,5 @@ jobs:
         run: npx playwright install --with-deps chromium
       - working-directory: frontend
         run: npm run build
-      - run: PYTHONPATH=backend uv run uvicorn estateai_server.main:app --host 127.0.0.1 --port 8002 &
-      - run: curl --fail --retry 20 --retry-delay 1 http://127.0.0.1:8002/api/health
       - working-directory: frontend
         run: npm run test:e2e
